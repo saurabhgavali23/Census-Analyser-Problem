@@ -12,9 +12,9 @@ import java.util.stream.StreamSupport;
 
 public class CensusAnalyser {
     public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
-        try ( Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));){
 
-            Iterator<IndiaCensusCSV> censusCSVIterator = getIteratorCsvFile(reader,IndiaCensusCSV.class);
+        try ( Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));){
+            Iterator<IndiaCensusCSV> censusCSVIterator = new OpenCSVBuilder().getIteratorCsvFile(reader,IndiaCensusCSV.class);
             return getCount(censusCSVIterator);
 
         } catch (IOException e) {
@@ -29,7 +29,7 @@ public class CensusAnalyser {
     public int loadIndiaStateCode(String csvFilePath) throws CensusAnalyserException {
 
         try ( Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));){
-            Iterator<IndiaStateCodeCSV> censusCSVIterator = getIteratorCsvFile(reader,IndiaStateCodeCSV.class);
+            Iterator<IndiaStateCodeCSV> censusCSVIterator = new OpenCSVBuilder().getIteratorCsvFile(reader,IndiaStateCodeCSV.class);
             return getCount(censusCSVIterator);
 
         } catch (IOException e) {
@@ -45,19 +45,5 @@ public class CensusAnalyser {
         Iterable<E> csvIterable = ()-> censusCSVIterator;
         int numOfEateries = (int) StreamSupport.stream(csvIterable.spliterator(),false).count();
         return numOfEateries;
-    }
-
-    private <E> Iterator<E> getIteratorCsvFile(Reader reader,Class cClass) throws CensusAnalyserException{
-
-        try {
-            CsvToBeanBuilder<E> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
-            csvToBeanBuilder.withType(cClass);
-            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
-            CsvToBean<E> csvToBean = csvToBeanBuilder.build();
-            return csvToBean.iterator();
-
-        }catch (IllegalStateException e){
-            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
-        }
     }
 }
