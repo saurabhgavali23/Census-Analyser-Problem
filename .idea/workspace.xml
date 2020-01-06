@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c80ee4f-b49f-4760-94c9-81f9af2ef2aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/test/resources/IPL2019FactsheetMostRuns.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/resources/IPL2019FactsheetMostWkts.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/resources/IndiaStateCensusData.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/resources/IndiaStateCode.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/IncorrectData.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/censusanalyser/IndiaStateCodeCSV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/IncorrectIndiaStateCode.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/censusanalyser/CensusAnalyser.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/censusanalyser/CensusAnalyser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/censusanalyser/CensusAnalyserException$ExceptionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/censusanalyser/CensusAnalyserException$ExceptionType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/censusanalyser/CensusAnalyserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/censusanalyser/CensusAnalyserTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/IndiaStateCode.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/IndiaStateCode.csv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -33,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+            <state relative-caret-position="-48">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,10 +42,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/IncorrectData.csv">
+        <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/IndiaStateCodeCSV.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/IndiaStateCode.csv">
           <provider selected="true" editor-type-id="csv-text-editor">
             <state>
-              <caret column="27" selection-start-column="27" selection-end-column="27" />
+              <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
             </state>
           </provider>
           <provider editor-type-id="csv-table-editor">
@@ -60,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="60" column="56" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
+            <state relative-caret-position="165">
+              <caret line="83" column="32" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,10 +75,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/IncorrectIndiaStateCode.csv">
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            </state>
+          </provider>
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -95,9 +112,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/test/resources/IncorrectDelimiterDemo" />
         <option value="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java" />
         <option value="$PROJECT_DIR$/src/test/resources/IncorrectData.csv" />
+        <option value="$PROJECT_DIR$/src/main/java/censusanalyser/IndiaStateCodeCSV.java" />
+        <option value="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserStateCode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/IncorrectIndiaStateCode.csv" />
         <option value="$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/IndiaStateCode.csv" />
       </list>
     </option>
   </component>
@@ -192,6 +213,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="censusanalyser" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="censusanalyser" />
     </key>
@@ -224,22 +248,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CensusAnalyser.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="censusanalyser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="censusanalyser" />
-      <option name="MAIN_CLASS_NAME" value="censusanalyser.CensusAnalyserTest" />
-      <option name="METHOD_NAME" value="givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithIncorrectHeader_ShouldThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CensusAnalyser.test" />
       <extension name="coverage">
@@ -256,7 +264,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithWrongFileType_ShouldThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CensusAnalyserTest.givenIndiaStateCode_WithIncorrectHeader_ShouldThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CensusAnalyser.test" />
       <extension name="coverage">
         <pattern>
@@ -266,13 +274,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="censusanalyser" />
       <option name="MAIN_CLASS_NAME" value="censusanalyser.CensusAnalyserTest" />
-      <option name="METHOD_NAME" value="givenIndiaCensusData_WithWrongFileType_ShouldThrowException" />
+      <option name="METHOD_NAME" value="givenIndiaStateCode_WithIncorrectHeader_ShouldThrowException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithWrongFile_ShouldThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CensusAnalyserTest.givenIndianCensusCSVFileReturnsCorrectRecords" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CensusAnalyser.test" />
       <extension name="coverage">
         <pattern>
@@ -282,7 +290,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="censusanalyser" />
       <option name="MAIN_CLASS_NAME" value="censusanalyser.CensusAnalyserTest" />
-      <option name="METHOD_NAME" value="givenIndiaCensusData_WithWrongFile_ShouldThrowException" />
+      <option name="METHOD_NAME" value="givenIndianCensusCSVFileReturnsCorrectRecords" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CensusAnalyser.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="censusanalyser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="censusanalyser" />
+      <option name="MAIN_CLASS_NAME" value="censusanalyser.CensusAnalyserTest" />
+      <option name="METHOD_NAME" value="givenIndianStateCodeCSVFileReturnsCorrectRecords" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -291,10 +315,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CensusAnalyserTest" />
+        <item itemvalue="JUnit.CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" />
+        <item itemvalue="JUnit.CensusAnalyserTest.givenIndiaStateCode_WithIncorrectHeader_ShouldThrowException" />
+        <item itemvalue="JUnit.CensusAnalyserTest.givenIndianCensusCSVFileReturnsCorrectRecords" />
         <item itemvalue="JUnit.CensusAnalyserTest.givenIndiaCensusData_WithIncorrectHeader_ShouldThrowException" />
-        <item itemvalue="JUnit.CensusAnalyserTest.givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException" />
-        <item itemvalue="JUnit.CensusAnalyserTest.givenIndiaCensusData_WithWrongFileType_ShouldThrowException" />
-        <item itemvalue="JUnit.CensusAnalyserTest.givenIndiaCensusData_WithWrongFile_ShouldThrowException" />
       </list>
     </recent_temporary>
   </component>
@@ -312,42 +336,42 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithWrongFileType_ShouldThrowException - 2020.01.06 at 09h 28m 33s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithWrongFileType_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest_givenIndianStateCodeCSVFileReturnsCorrectRecords - 2020.01.06 at 11h 08m 00s.xml">
+      <configuration name="CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithWrongFileType_ShouldThrowException - 2020.01.06 at 09h 31m 19s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithWrongFileType_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest_givenIndianStateCodeCSVFileReturnsCorrectRecords - 2020.01.06 at 11h 08m 33s.xml">
+      <configuration name="CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithWrongFileType_ShouldThrowException - 2020.01.06 at 09h 33m 29s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithWrongFileType_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest_givenIndianStateCodeCSVFileReturnsCorrectRecords - 2020.01.06 at 11h 09m 27s.xml">
+      <configuration name="CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithWrongFileType_ShouldThrowException - 2020.01.06 at 09h 35m 54s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithWrongFileType_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest_givenIndianStateCodeCSVFileReturnsCorrectRecords - 2020.01.06 at 11h 20m 04s.xml">
+      <configuration name="CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithWrongFileType_ShouldThrowException - 2020.01.06 at 09h 38m 59s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithWrongFileType_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest_givenIndianStateCodeCSVFileReturnsCorrectRecords - 2020.01.06 at 11h 36m 55s.xml">
+      <configuration name="CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException - 2020.01.06 at 09h 49m 24s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest_givenIndiaStateCode_WithIncorrectHeader_ShouldThrowException - 2020.01.06 at 11h 40m 56s.xml">
+      <configuration name="CensusAnalyserTest.givenIndiaStateCode_WithIncorrectHeader_ShouldThrowException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException - 2020.01.06 at 09h 52m 36s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest_givenIndianStateCodeCSVFileReturnsCorrectRecords - 2020.01.06 at 11h 43m 35s.xml">
+      <configuration name="CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException - 2020.01.06 at 09h 59m 42s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest - 2020.01.06 at 11h 44m 30s.xml">
+      <configuration name="CensusAnalyserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException - 2020.01.06 at 10h 16m 00s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithIncorrectDelimiter_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest_givenIndianStateCodeCSVFileReturnsCorrectRecords - 2020.01.06 at 11h 47m 43s.xml">
+      <configuration name="CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_WithIncorrectHeader_ShouldThrowException - 2020.01.06 at 10h 19m 55s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_WithIncorrectHeader_ShouldThrowException" configurationId="JUnit" />
+    <history-entry file="CensusAnalyserTest_givenIndianStateCodeCSVFileReturnsCorrectRecords - 2020.01.06 at 11h 48m 03s.xml">
+      <configuration name="CensusAnalyserTest.givenIndianStateCodeCSVFileReturnsCorrectRecords" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25379092" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25379092" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -355,10 +379,10 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Messages" weight="0.32899022" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -400,19 +424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/IndiaCensusCSV.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/IndiaStateCode.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/IPL2019FactsheetMostRuns.csv">
       <provider selected="true" editor-type-id="csv-text-editor" />
       <provider editor-type-id="csv-table-editor">
@@ -445,23 +456,6 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="60" column="56" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/IncorrectData.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
         <state>
@@ -472,14 +466,82 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.opencsv/opencsv/4.0/757a89a7afdda196a5dc0a187e80f2888c54cf6b/opencsv-4.0-sources.jar!/com/opencsv/bean/CsvToBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        <state relative-caret-position="127">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/IndiaCensusCSV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/IndiaStateCodeCSV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserStateCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/IncorrectIndiaStateCode.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="83" column="32" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/IndiaStateCode.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state>
+          <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
   </component>
