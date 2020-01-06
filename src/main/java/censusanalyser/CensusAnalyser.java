@@ -22,8 +22,7 @@ public class CensusAnalyser {
             int namOfEateries = (int) StreamSupport.stream(csvIterable.spliterator(),false).count();
             return namOfEateries;
         } catch (IOException e) {
-            throw new CensusAnalyserException(e.getMessage(),
-                    CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
         }catch (IllegalStateException e){
             throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
         }catch (RuntimeException r){
@@ -39,17 +38,14 @@ public class CensusAnalyser {
             CsvToBean<IndiaStateCodeCSV> csvToBean = csvToBeanBuilder.build();
             Iterator<IndiaStateCodeCSV> censusCSVIterator = csvToBean.iterator();
             Iterable<IndiaStateCodeCSV> csvIterable = ()-> censusCSVIterator;
-            int namOfEateries = (int) StreamSupport.stream(csvIterable.spliterator(),false).count();
-            return namOfEateries;
+            int stateCode = (int) StreamSupport.stream(csvIterable.spliterator(),false).count();
+            return stateCode;
         } catch (IOException e) {
-            throw new CensusAnalyserException(e.getMessage(),
-                    CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
         }catch (IllegalStateException e){
             throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
         }catch (RuntimeException r){
             throw new CensusAnalyserException(r.getMessage(),CensusAnalyserException.ExceptionType.INCORRECT_FILE_DATA);
         }
     }
-
-
 }
