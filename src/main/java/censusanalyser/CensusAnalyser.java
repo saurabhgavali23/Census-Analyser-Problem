@@ -1,5 +1,7 @@
 package censusanalyser;
 
+import csvbuilderexception.CSVBuilderException;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -21,6 +23,8 @@ public class CensusAnalyser {
             throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
         }catch (RuntimeException r){
             throw new CensusAnalyserException(r.getMessage(),CensusAnalyserException.ExceptionType.INCORRECT_FILE_DATA);
+        } catch (CSVBuilderException e) {
+            throw new CensusAnalyserException(e.getMessage(),e.type.name());
         }
     }
 
@@ -37,6 +41,8 @@ public class CensusAnalyser {
             throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
         }catch (RuntimeException r){
             throw new CensusAnalyserException(r.getMessage(),CensusAnalyserException.ExceptionType.INCORRECT_FILE_DATA);
+        } catch (CSVBuilderException e) {
+            throw new CensusAnalyserException(e.getMessage(),e.type.name());
         }
     }
 
