@@ -136,9 +136,9 @@ public class CensusAnalyserTest {
         }
     }
 
-    // Test Cases For Sort CSV File and return Json Formate
+    // Test Cases For Sort IndiaCensusCSV File and return Json Formate
     @Test
-    public void givenIndiaStates_WithStartState_ShouldAndhraPradesh() {
+    public void givenIndiaStates_WithStartState_ShouldReturnAndhraPradesh() {
         CensusAnalyser censusAnalyser = new CensusAnalyser();
         ExpectedException exceptionRule = ExpectedException.none();
         exceptionRule.expect(CensusAnalyserException.class);
@@ -148,12 +148,33 @@ public class CensusAnalyserTest {
     }
 
     @Test
-    public void givenIndiaStates_WithEndState_ShouldWestBengal() {
+    public void givenIndiaStates_WithEndState_ShouldReturnWestBengal() {
         CensusAnalyser censusAnalyser = new CensusAnalyser();
         ExpectedException exceptionRule = ExpectedException.none();
         exceptionRule.expect(CensusAnalyserException.class);
         String sortedStates = censusAnalyser.getSortedStates(INDIA_CENSUS_CSV_FILE_PATH);
         IndiaCensusCSV[] indiaCensusCSVS = new Gson().fromJson(sortedStates,IndiaCensusCSV[].class);
         Assert.assertEquals(indiaCensusCSVS[28].state,"West Bengal");
+    }
+
+    // Test Cases For Sort IndiaCensusCodeCSV File and return Json Formate
+    @Test
+    public void givenIndiaStatesCodeCSV_WithStartState_ShouldReturnAndhraPradesh() {
+        CensusAnalyser censusAnalyser = new CensusAnalyser();
+        ExpectedException exceptionRule = ExpectedException.none();
+        exceptionRule.expect(CensusAnalyserException.class);
+        String sortedStatesCode = censusAnalyser.getSortedStateCode(INDIA_STATE_CODE_CSV_FILE_PATH);
+        IndiaStateCodeCSV[] indiaStateCodeCSVS = new Gson().fromJson(sortedStatesCode,IndiaStateCodeCSV[].class);
+        Assert.assertEquals(indiaStateCodeCSVS[0].stateName,"Andhra Pradesh New");
+    }
+
+    @Test
+    public void givenIndiaStatesCodeCSV_WithEndState_ShouldReturnWestBengal() {
+        CensusAnalyser censusAnalyser = new CensusAnalyser();
+        ExpectedException exceptionRule = ExpectedException.none();
+        exceptionRule.expect(CensusAnalyserException.class);
+        String sortedStatesCode = censusAnalyser.getSortedStateCode(INDIA_STATE_CODE_CSV_FILE_PATH);
+        IndiaStateCodeCSV[] indiaStateCodeCSVS = new Gson().fromJson(sortedStatesCode,IndiaStateCodeCSV[].class);
+        Assert.assertEquals(indiaStateCodeCSVS[36].stateName,"West Bengal");
     }
 }

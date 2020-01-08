@@ -1,10 +1,8 @@
 package censusanalyser;
 
 import com.google.gson.Gson;
-import com.opencsv.CSVReader;
 import csvbuilder.*;
 
-import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -81,5 +79,33 @@ public class CensusAnalyser {
            e.printStackTrace();
        }
        return null;
+    }
+
+    public static String getSortedStateCode(String csvFilePath){
+
+        try(Reader reader = new BufferedReader(new FileReader(csvFilePath));){
+            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+            Iterator<IndiaStateCodeCSV> codeCSVIterator = csvBuilder.getIteratorCsvFile(reader,IndiaStateCodeCSV.class);
+            List list = new ArrayList();
+
+            while (codeCSVIterator.hasNext()){
+                list.add(codeCSVIterator.next());
+            }
+
+            Comparator<IndiaStateCodeCSV> codeCSVComparator = (o1,o2)-> ((o1.stateCode.compareTo(o2.stateCode))< 0)?-1:1;
+            Collections.sort(list,codeCSVComparator);
+
+            String recoreds = new Gson().toJson(list);
+            System.out.println(recoreds);
+            return recoreds;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (CSVBuilderException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
