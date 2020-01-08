@@ -1,15 +1,18 @@
 package censusanalyser;
 
+import com.google.gson.Gson;
+import com.opencsv.CSVReader;
 import csvbuilder.*;
 
-import java.io.IOException;
-import java.io.Reader;
+import javax.swing.*;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Iterator;
+import java.util.*;
 import java.util.stream.StreamSupport;
 
 public class CensusAnalyser {
+
     public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
 
         try ( Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));){
@@ -50,5 +53,33 @@ public class CensusAnalyser {
         Iterable<E> csvIterable = ()-> censusCSVIterator;
         int numOfEateries = (int) StreamSupport.stream(csvIterable.spliterator(),false).count();
         return numOfEateries;
+    }
+
+    public static String getSortedStates(String csvFilePath){
+
+       try(Reader reader = new BufferedReader(new FileReader(csvFilePath));){
+           ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+           Iterator<IndiaCensusCSV> censusCSVIterator = csvBuilder.getIteratorCsvFile(reader,IndiaCensusCSV.class);
+           List list = new ArrayList();
+
+           while (censusCSVIterator.hasNext()){
+               list.add(censusCSVIterator.next());
+           }
+
+           Comparator<IndiaCensusCSV> censusCSVComparator = (o1,o2)-> ((o1.toString().compareTo(o2.toString())) < 0)?-1:1;
+           Collections.sort(list,censusCSVComparator);
+
+           String recoreds = new Gson().toJson(list);
+           System.out.println(recoreds);
+           return recoreds;
+
+       } catch (FileNotFoundException e) {
+           e.printStackTrace();
+       } catch (IOException e) {
+           e.printStackTrace();
+       } catch (CSVBuilderException e) {
+           e.printStackTrace();
+       }
+       return null;
     }
 }

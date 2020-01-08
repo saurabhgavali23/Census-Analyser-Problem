@@ -1,8 +1,11 @@
 package censusanalyser;
 
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import java.util.List;
 
 public class CensusAnalyserTest {
 
@@ -131,5 +134,26 @@ public class CensusAnalyserTest {
         } catch (CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.INCORRECT_FILE_DATA,e.type);
         }
+    }
+
+    // Test Cases For Sort CSV File and return Json Formate
+    @Test
+    public void givenIndiaStates_WithStartState_ShouldAndhraPradesh() {
+        CensusAnalyser censusAnalyser = new CensusAnalyser();
+        ExpectedException exceptionRule = ExpectedException.none();
+        exceptionRule.expect(CensusAnalyserException.class);
+        String sortedStates = censusAnalyser.getSortedStates(INDIA_CENSUS_CSV_FILE_PATH);
+        IndiaCensusCSV[] indiaCensusCSVS = new Gson().fromJson(sortedStates,IndiaCensusCSV[].class);
+        Assert.assertEquals(indiaCensusCSVS[0].state,"Andhra Pradesh");
+    }
+
+    @Test
+    public void givenIndiaStates_WithEndState_ShouldWestBengal() {
+        CensusAnalyser censusAnalyser = new CensusAnalyser();
+        ExpectedException exceptionRule = ExpectedException.none();
+        exceptionRule.expect(CensusAnalyserException.class);
+        String sortedStates = censusAnalyser.getSortedStates(INDIA_CENSUS_CSV_FILE_PATH);
+        IndiaCensusCSV[] indiaCensusCSVS = new Gson().fromJson(sortedStates,IndiaCensusCSV[].class);
+        Assert.assertEquals(indiaCensusCSVS[28].state,"West Bengal");
     }
 }
