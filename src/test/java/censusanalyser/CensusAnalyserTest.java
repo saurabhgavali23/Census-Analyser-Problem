@@ -223,4 +223,19 @@ public class CensusAnalyserTest {
             e.printStackTrace();
         }
     }
+
+    // Test Cases For IndiaCensusState Density
+    @Test
+    public void givenIndiaStatesCSV_ShouldReturnSortedDataByDensity() {
+        CensusAnalyser censusAnalyser = new CensusAnalyser();
+        try {
+            censusAnalyser.loadIndiaCensusData(INDIA_CENSUS_CSV_FILE_PATH);
+            String sortedPopulatedStatesByDensity = censusAnalyser.getSortedPopulatedStatesByDensity();
+            IndiaCensusCSV[] indiaCensusCSVS = new Gson().fromJson(sortedPopulatedStatesByDensity,IndiaCensusCSV[].class);
+            Assert.assertEquals(indiaCensusCSVS[0].state,"Bihar");
+            Assert.assertEquals(indiaCensusCSVS[28].state,"Arunachal Pradesh");
+        } catch (CensusAnalyserException e) {
+            e.printStackTrace();
+        }
+    }
 }
