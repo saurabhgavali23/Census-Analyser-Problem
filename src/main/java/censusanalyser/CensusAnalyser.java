@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CensusAnalyser {
 
@@ -47,11 +48,11 @@ public class CensusAnalyser {
         try ( Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));){
             ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
             List<IndiaStateCodeCSV> censusStateCodeList = csvBuilder.getListCsvFile(reader,IndiaStateCodeCSV.class);
-            int i=0;
-            while (i < censusStateCodeList.size()){
-                this.censusStateCodeDAOList.add(new IndiaStateCodeDAO(censusStateCodeList.get(i)));
-                i++;
-            }
+
+            censusStateCodeList.stream().filter(censusStateCode ->
+                    censusStateCodeDAOList.add(new IndiaStateCodeDAO(censusStateCode)))
+                    .collect(Collectors.toList());
+
             return censusStateCodeDAOList.size();
 
         } catch (IOException e) {
