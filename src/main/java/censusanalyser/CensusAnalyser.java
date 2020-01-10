@@ -116,4 +116,17 @@ public class CensusAnalyser {
         System.out.println(sortedPopulationStateByDensity);
         return sortedPopulationStateByDensity;
     }
+
+    public String getSortedPopulatedStatesByArea() throws CensusAnalyserException {
+
+        if (censusCSVDAOList == null || censusCSVDAOList.size() == 0){
+            throw new CensusAnalyserException("No Census Data",CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
+        }
+        Comparator<IndiaCensusDAO> censusCSVComparator = (o1,o2)-> ((o1.areaInSqKm - o2.areaInSqKm) > 0)?-1:1;
+        Collections.sort(censusCSVDAOList,censusCSVComparator);
+
+        String sortedStatesByArea = new Gson().toJson(censusCSVDAOList);
+        System.out.println(sortedStatesByArea);
+        return sortedStatesByArea;
+    }
 }
