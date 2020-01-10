@@ -167,7 +167,7 @@ public class CensusAnalyserTest {
 
     // Test Cases For Sort IndiaCensusCodeCSV File and return Json Formate
     @Test
-    public void givenIndiaStatesCodeCSV_WithStartState_ShouldReturnSortedData() {
+    public void givenIndiaStatesCodeCSV_ShouldReturnSortedData() {
         CensusAnalyser censusAnalyser = new CensusAnalyser();
         try {
             censusAnalyser.loadIndiaStateCode(INDIA_STATE_CODE_CSV_FILE_PATH);
