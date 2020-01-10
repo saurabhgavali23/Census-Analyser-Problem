@@ -165,7 +165,7 @@ public class CensusAnalyserTest {
         }
     }
 
-    // Test Cases For Sort IndiaCensusCodeCSV File and return Json Formate
+    // Test Cases For Sort IndiaStateCodeCSV File and return Json Formate
     @Test
     public void givenIndiaStatesCodeCSV_ShouldReturnSortedData() {
         CensusAnalyser censusAnalyser = new CensusAnalyser();
@@ -190,6 +190,35 @@ public class CensusAnalyserTest {
             IndiaStateCodeCSV[] indiaStateCodeCSVS = new Gson().fromJson(sortedStatesCode,IndiaStateCodeCSV[].class);
             Assert.assertEquals(indiaStateCodeCSVS[0].stateName,"Andhra Pradesh New");
             Assert.assertEquals(indiaStateCodeCSVS[36].stateName,"West Bengal");
+        } catch (CensusAnalyserException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Test Cases For IndiaCensusState Population
+    @Test
+    public void givenIndiaStatesPopulation_ShouldReturnSortedData() {
+        CensusAnalyser censusAnalyser = new CensusAnalyser();
+        try {
+            censusAnalyser.loadIndiaCensusData(INDIA_CENSUS_CSV_FILE_PATH);
+            String sortedPopulatedStates = censusAnalyser.getSortedPopulatedStates();
+            IndiaCensusCSV[] indiaCensusCSVS = new Gson().fromJson(sortedPopulatedStates,IndiaCensusCSV[].class);
+            Assert.assertEquals(indiaCensusCSVS[0].state,"Uttar Pradesh");
+            Assert.assertEquals(indiaCensusCSVS[28].state,"Sikkim");
+        } catch (CensusAnalyserException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenNullIndiaStatesPopulation_ShouldReturnSortedData() {
+        CensusAnalyser censusAnalyser = new CensusAnalyser();
+        try {
+            censusAnalyser.loadIndiaCensusData(NULL_CSV_FILE);
+            String sortedPopulatedStates = censusAnalyser.getSortedPopulatedStates();
+            IndiaCensusCSV[] indiaCensusCSVS = new Gson().fromJson(sortedPopulatedStates,IndiaCensusCSV[].class);
+            Assert.assertEquals(indiaCensusCSVS[0].state,"Uttar Pradesh");
+            Assert.assertEquals(indiaCensusCSVS[28].state,"Sikkim");
         } catch (CensusAnalyserException e) {
             e.printStackTrace();
         }
