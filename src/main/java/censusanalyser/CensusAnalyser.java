@@ -14,10 +14,12 @@ public class CensusAnalyser {
 
     List<IndiaCensusDAO> censusCSVDAOList = null;
     List<IndiaStateCodeDAO> censusStateCodeDAOList = null;
+    List<USCensusDAO> usCensusCSVDAOList = null;
 
     public CensusAnalyser() {
         this.censusCSVDAOList = new ArrayList<IndiaCensusDAO>();
         this.censusStateCodeDAOList = new ArrayList<IndiaStateCodeDAO>();
+        this.usCensusCSVDAOList = new ArrayList<USCensusDAO>();
     }
 
     public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
@@ -66,6 +68,29 @@ public class CensusAnalyser {
         }
     }
 
+    public int loadUSCensusData(String csvFilePath) throws CensusAnalyserException {
+
+        try ( Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));){
+            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+            List<USCensusDataCSV> censusUSCensusList = csvBuilder.getListCsvFile(reader,USCensusDataCSV.class);
+
+           censusUSCensusList.stream().filter(usCensusData ->
+                    usCensusCSVDAOList.add(new USCensusDAO(usCensusData)))
+                    .collect(Collectors.toList());
+
+            return censusUSCensusList.size();
+
+        } catch (IOException e) {
+            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        }catch (IllegalStateException e){
+            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
+        }catch (RuntimeException r){
+            throw new CensusAnalyserException(r.getMessage(),CensusAnalyserException.ExceptionType.INCORRECT_FILE_DATA);
+        } catch (CSVBuilderException e) {
+            throw new CensusAnalyserException(e.getMessage(),e.type.name());
+        }
+    }
+
     public String getSortedStates() throws CensusAnalyserException {
 
         if (censusCSVDAOList == null || censusCSVDAOList.size() == 0){
@@ -84,7 +109,7 @@ public class CensusAnalyser {
         if (censusStateCodeDAOList == null || censusStateCodeDAOList.size() == 0){
             throw new CensusAnalyserException("No Census Data",CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
         }
-            Comparator<IndiaStateCodeDAO> codeCSVComparator = (o1,o2)-> ((o1.stateCode.compareTo(o2.stateCode))< 0)?-1:1;
+            Comparator<IndiaStateCodeDAO> codeCSVComparator = (o1,o2)-> ((o1.stateCode.compareTo(o2.stateCode)) < 0)?-1:1;
             Collections.sort(censusStateCodeDAOList,codeCSVComparator);
 
             String sortedStateCode = new Gson().toJson(censusStateCodeDAOList);
