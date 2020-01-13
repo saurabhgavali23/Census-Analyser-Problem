@@ -12,52 +12,19 @@ import java.util.stream.Collectors;
 
 public class CensusAnalyser {
 
-    List<CensusDAO> censusCSVDAOList = null;
-    List<IndiaStateCodeDAO> censusStateCodeDAOList = null;
-
-    public CensusAnalyser() {
-        this.censusCSVDAOList = new ArrayList<CensusDAO>();
-        this.censusStateCodeDAOList = new ArrayList<IndiaStateCodeDAO>();
-    }
+    List<CensusDAO> censusCSVDAOList = new ArrayList<CensusDAO>();
+    List<IndiaStateCodeDAO> censusStateCodeDAOList = new ArrayList<IndiaStateCodeDAO>();
 
     public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
 
-        return this.loadCensusData(csvFilePath,IndiaCensusCSV.class);
+        censusCSVDAOList = new CensusLoader().loadCensusData(csvFilePath, IndiaCensusCSV.class);
+        return censusCSVDAOList.size();
     }
 
     public int loadUSCensusData(String csvFilePath) throws CensusAnalyserException {
 
-        return this.loadCensusData(csvFilePath,USCensusDataCSV.class);
-    }
-
-    private <E> int loadCensusData(String csvFilePath, Class<E> CensusCSVClass) throws CensusAnalyserException {
-
-        try ( Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));){
-            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
-            List<E> censusList = csvBuilder.getListCsvFile(reader, CensusCSVClass);
-
-            if(CensusCSVClass.getName().equals("censusanalyser.IndiaCensusCSV")) {
-                censusList.stream().filter(censusData -> censusCSVDAOList
-                        .add(new CensusDAO((IndiaCensusCSV) censusData)))
-                        .collect(Collectors.toList());
-            }
-            else if (CensusCSVClass.getName().equals("censusanalyser.USCensusDataCSV")){
-                censusList.stream().filter(censusData -> censusCSVDAOList
-                        .add(new CensusDAO((USCensusDataCSV) censusData)))
-                        .collect(Collectors.toList());
-            }
-
-            return censusCSVDAOList.size();
-
-        } catch (IOException e) {
-            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
-        }catch (IllegalStateException e){
-            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
-        }catch (RuntimeException r){
-            throw new CensusAnalyserException(r.getMessage(),CensusAnalyserException.ExceptionType.INCORRECT_FILE_DATA);
-        } catch (CSVBuilderException e) {
-            throw new CensusAnalyserException(e.getMessage(),e.type.name());
-        }
+        censusCSVDAOList = new CensusLoader().loadCensusData(csvFilePath, USCensusDataCSV.class);
+        return censusCSVDAOList.size();
     }
 
     public int loadIndiaStateCode(String csvFilePath) throws CensusAnalyserException {
