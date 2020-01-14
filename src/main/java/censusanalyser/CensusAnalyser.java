@@ -8,17 +8,28 @@ import java.util.stream.Collectors;
 
 public class CensusAnalyser {
 
+    public enum Country{INDIA,US}
+
     Map<String,CensusDAO> censusDAOMap = new HashMap<>();
 
-    public int loadIndiaCensusData(String... csvFilePath) throws CensusAnalyserException {
+    public <E> int loadCensusData(Country country, String... csvFilePath) throws CensusAnalyserException {
+        if (country.equals(CensusAnalyser.Country.INDIA))
+            return this.loadIndiaCensusData(IndiaCensusCSV.class, csvFilePath);
+        else if (country.equals(CensusAnalyser.Country.US))
+            return this.loadUSCensusData(USCensusDataCSV.class, csvFilePath);
+        else
+            throw new CensusAnalyserException("Invalid Country", CensusAnalyserException.ExceptionType.INVALID_COUNTRY);
+    }
 
-        censusDAOMap = new CensusLoader().loadCensusData(IndiaCensusCSV.class,csvFilePath);
+    public int loadIndiaCensusData(Class className,String... csvFilePath) throws CensusAnalyserException {
+
+        censusDAOMap = new CensusLoader().loadCensusData(className,csvFilePath);
         return censusDAOMap.size();
     }
 
-    public int loadUSCensusData(String... csvFilePath) throws CensusAnalyserException {
+    public int loadUSCensusData(Class className,String... csvFilePath) throws CensusAnalyserException {
 
-        censusDAOMap = new CensusLoader().loadCensusData(USCensusDataCSV.class,csvFilePath);
+        censusDAOMap = new CensusLoader().loadCensusData(className,csvFilePath);
         return censusDAOMap.size();
     }
 
