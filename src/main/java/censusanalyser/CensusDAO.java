@@ -6,7 +6,7 @@ public class CensusDAO {
     public int densityPerSqKm;
     public int areaInSqKm;
     public String state;
-    public String stateId;
+    public String stateCode;
     public int housingUnits;
     public double waterArea;
     public double landArea;
@@ -20,7 +20,7 @@ public class CensusDAO {
     }
 
     public CensusDAO(USCensusDataCSV usCensusDataCSV){
-        stateId = usCensusDataCSV.stateId;
+        stateCode = usCensusDataCSV.stateCode;
         state = usCensusDataCSV.state;
         population = usCensusDataCSV.population;
         housingUnits = usCensusDataCSV.housingUnits;

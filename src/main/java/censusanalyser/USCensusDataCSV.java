@@ -5,7 +5,7 @@ import com.opencsv.bean.CsvBindByName;
 public class USCensusDataCSV {
 
     @CsvBindByName(column = "State Id" , required = true)
-    public String stateId;
+    public String stateCode;
 
     @CsvBindByName(column = "State" , required = true)
     public String state;
@@ -35,7 +35,7 @@ public class USCensusDataCSV {
     @Override
     public String toString() {
         return "USCensusDataCSV{" +
-                "stateId='" + stateId + '\'' +
+                "stateCode='" + stateCode + '\'' +
                 ", state='" + state + '\'' +
                 ", population=" + population +
                 ", housingUnits=" + housingUnits +
