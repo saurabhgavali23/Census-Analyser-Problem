@@ -12,27 +12,11 @@ public class CensusAnalyser {
 
     Map<String,CensusDAO> censusDAOMap = new HashMap<>();
 
-    public <E> int loadCensusData(Country country, String... csvFilePath) throws CensusAnalyserException {
-        if (country.equals(CensusAnalyser.Country.INDIA))
-            return this.loadIndiaCensusData(IndiaCensusCSV.class, csvFilePath);
-        else if (country.equals(CensusAnalyser.Country.US))
-            return this.loadUSCensusData(USCensusDataCSV.class, csvFilePath);
-        else
-            throw new CensusAnalyserException("Invalid Country", CensusAnalyserException.ExceptionType.INVALID_COUNTRY);
-    }
+    public int loadCensusData(Country country, String... csvFilePath) throws CensusAnalyserException {
 
-    public int loadIndiaCensusData(Class className,String... csvFilePath) throws CensusAnalyserException {
-
-        censusDAOMap = new CensusLoader().loadCensusData(className,csvFilePath);
+        censusDAOMap = CensusAdapterFactory.getCensusData(country,csvFilePath);
         return censusDAOMap.size();
     }
-
-    public int loadUSCensusData(Class className,String... csvFilePath) throws CensusAnalyserException {
-
-        censusDAOMap = new CensusLoader().loadCensusData(className,csvFilePath);
-        return censusDAOMap.size();
-    }
-
 
     public String getSortedStates() throws CensusAnalyserException {
 
