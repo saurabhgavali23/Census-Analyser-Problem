@@ -8,6 +8,4 @@ public class USCensusAdapter extends CensusAdapter {
     public <E> Map<String, CensusDAO> loadCensusData(String... csvFilePath) throws CensusAnalyserException {
         return super.loadCensusData(USCensusDataCSV.class,csvFilePath[0]);
     }
-
-
 }

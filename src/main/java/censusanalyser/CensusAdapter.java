@@ -3,7 +3,6 @@ package censusanalyser;
 import csvbuilder.CSVBuilderException;
 import csvbuilder.CSVBuilderFactory;
 import csvbuilder.ICSVBuilder;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -16,7 +15,6 @@ import java.util.stream.StreamSupport;
 public abstract class CensusAdapter {
 
     public  abstract <E> Map<String,CensusDAO> loadCensusData(String... csvFilePath) throws CensusAnalyserException;
-
 
     public  <E> Map<String,CensusDAO> loadCensusData(Class<E> CensusCSVClass, String csvFilePath) throws CensusAnalyserException {
         Map<String,CensusDAO> censusStateMap = new TreeMap<>();
@@ -37,11 +35,14 @@ public abstract class CensusAdapter {
             return censusStateMap;
 
         } catch (IOException e) {
-            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+            throw new CensusAnalyserException(e.getMessage(),
+                    CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
         }catch (IllegalStateException e){
-            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
+            throw new CensusAnalyserException(e.getMessage(),
+                    CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE);
         }catch (RuntimeException r){
-            throw new CensusAnalyserException(r.getMessage(),CensusAnalyserException.ExceptionType.INCORRECT_FILE_DATA);
+            throw new CensusAnalyserException(r.getMessage(),
+                    CensusAnalyserException.ExceptionType.INCORRECT_FILE_DATA);
         } catch (CSVBuilderException e) {
             throw new CensusAnalyserException(e.getMessage(),e.type.name());
         }

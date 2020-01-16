@@ -46,4 +46,19 @@ public class USCensusDataCSV {
                 ", housingDensity=" + housingDensity +
                 '}';
     }
+
+    public USCensusDataCSV() {
+    }
+
+    public USCensusDataCSV(String state, String stateCode, int population, int housingUnits, int areaInSqKm, double waterArea, double landArea, int densityPerSqKm, double housingDensity) {
+        this.state = state;
+        this.stateCode = stateCode;
+        this.population = population;
+        this.housingUnits = housingUnits;
+        this.totalArea = areaInSqKm;
+        this.waterArea = waterArea;
+        this.landArea = landArea;
+        this.populationDensity = densityPerSqKm;
+        this.housingDensity = housingDensity;
+    }
 }
