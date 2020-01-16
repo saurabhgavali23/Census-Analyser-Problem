@@ -1,6 +1,6 @@
 package censusanalyser;
 
-public class IndiaStateCodeDAO{
+public class IndiaStateCodeDAO {
 
     public String stateCode;
     public int tin;
